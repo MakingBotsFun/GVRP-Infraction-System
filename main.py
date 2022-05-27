@@ -38,12 +38,11 @@ async def on_message(message):
      await member.ban()
     
 
-
-@commands.has_role(964618093236219924)  
-@client.command()
-async def strike(ctx, member : nextcord.Member, *, arg):
-  await ctx.message.delete()
-  await member.send(f"You have been striked by {ctx.author.mention}. Infraction message: \n \n {arg}")
+@application_checks.has_role(964618093236219924)  
+@client.slash_command(description="Strike someone!")
+async def strike(interaction : nextcord.Interaction, member : nextcord.Member, reason : str):
+  await member.send(f"You have been striked by {ctx.author.mention}. Infraction reason: \n \n {reason}")
+  await interaction.send(f"Success! \n Infraction reason: {reason}", ephemeral=True)
 
 
 client.run("TOKEN_HERE")
