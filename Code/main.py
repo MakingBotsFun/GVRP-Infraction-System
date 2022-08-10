@@ -1,9 +1,7 @@
 import nextcord
 from nextcord.ext import commands
-import keep_alive
 from nextcord import Interaction, SlashOption, ChannelType
 from nextcord.ext import application_checks
-keep_alive.keep_alive()
 
 client = commands.Bot(command_prefix="gvrp!")
 
